@@ -49,6 +49,7 @@ __RCSID("$NetBSD: regexp.c,v 1.15 2021/12/12 08:49:58 andvar Exp $");
 
 #include <assert.h>
 #include <ctype.h>
+#include <stddef.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
