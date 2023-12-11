@@ -46,12 +46,23 @@
 .Ar
 .Sh DESCRIPTION
 .Nm
-formats the program sources which are arguments
-in a nice style using
-.Xr troff 1 .
+creates typeset print-outs of programs.  It can also create a typeset
+index of a group of files (see the
+.Fl x
+option.)  Its arguments are program files, which
+.Nm
+formats with
+.Xr groff 1 .
 Comments are placed in italics, keywords in bold face,
 and the name of the current function is listed down the margin of each
 page as it is encountered.
+.Pp
+By default (but see the
+.Fl t
+option) output is automatically printed with the
+.Xr groff 1
+.Fl l
+option.
 .Pp
 .Nm
 runs in two basic modes, filter mode (see the
@@ -63,7 +74,7 @@ acts as a filter in a manner similar to
 .Xr tbl 1 .
 The standard input is passed directly to the standard output except
 for lines bracketed by the
-.Em troff-like
+.Em roff-like
 macros:
 .Bl -tag -width Ds
 .It \&.vS
@@ -74,7 +85,7 @@ ends processing
 .Pp
 These lines are formatted as described above.
 The output from this filter can be passed to
-.Xr troff 1
+.Xr groff 1
 for output.
 There need be no particular ordering with
 .Xr eqn 1
@@ -84,7 +95,7 @@ or
 In regular mode
 .Nm
 accepts input files, processes them, and passes them to
-.Xr troff 1
+.Xr groff 1
 for output.
 .Pp
 In both modes
@@ -139,12 +150,9 @@ specifies a point size
 to use on output (exactly the same as the argument
 of a .ps)
 .It Fl t
-similar to the same option in
-.Xr troff 1
-causing formatted text to go to the standard output
+sends formatted text in PostScript to the standard output
 .It Fl W
-forces output to the (wide) Versatec printer rather than the (narrow)
-Varian
+wide output
 .It Fl x
 outputs the index file in a ``pretty'' format.
 The index file itself is produced whenever
@@ -174,7 +182,7 @@ language descriptions
 .El
 .Sh SEE ALSO
 .Xr lpr 1 ,
-.Xr troff 1 ,
+.Xr groff 1 ,
 .Xr getcap 3 ,
 .Xr vgrindefs 5
 .Sh HISTORY
@@ -184,24 +192,26 @@ command appeared in
 .Bx 3.0 .
 .Sh BUGS
 Vfontedpr assumes that a certain programming style is followed:
-.Pp
+.Bl -dash
+.It
 For
 .Tn C
 \- function names can be preceded on a line only by spaces, tabs, or an
 asterisk.
 The parenthesized arguments must also be on the same line.
-.Pp
+.It
 For
 .Tn PASCAL
 \- function names need to appear on the same line as the keywords
 .Em function
 or
 .Em procedure .
-.Pp
+.It
 For
 .Tn MODEL
 \- function names need to appear on the same line as the keywords
 .Em is beginproc .
+.El
 .Pp
 If these conventions are not followed, the indexing and marginal function
 name comment mechanisms will fail.
@@ -214,13 +224,28 @@ This is somewhat inevitable since the font used by
 .Nm
 is variable width.
 .Pp
+.Nm
+works best if it is run from the directory of the files being
+formatted or a directory immediately above.  Run from a remote
+directory, it produces long garbled headers. 
+.Pp
+.Nm
+is oriented to producing typeset printouts of entire programs and
+automatically sends its output to a printer.  Producing a PDF file by
+default (see the
+.Fl t 
+option) might be better for modern usage.
+.Pp
 The mechanism of
 .Xr ctags 1
 in recognizing functions should be used here.
+.Pp
+The file locations listed in the FILES section of this page only apply
+to the original BSD version; the current file names are the same, but
+the locations may be different.
 .Pp
 Filter mode does not work in documents using the
 .Fl me
 or
 .Fl ms
 macros.
-(So what use is it anyway?)
