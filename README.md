@@ -1,7 +1,7 @@
 vgrind
 ======
 
-The venerable BSD prettyprinter, which I am forking so that I can have it for my own use, and perhaps reference the repository in other projects.
+The venerable BSD prettyprinter, which I am forking so that I can build it for my own use on macOS, and perhaps reference the repository in other projects.
 
 Source
 ------
