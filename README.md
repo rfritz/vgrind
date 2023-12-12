@@ -1,9 +1,8 @@
 vgrind
 ======
 
-The venerable BSD prettyprinter, which I am forking so that I can
-build it for my own use on macOS, and perhaps reference the repository
-in other projects.
+The venerable BSD prettyprinter, which I am forking for my own use on
+macOS, and perhaps for use in other projects.
 
 Source
 ------
@@ -14,7 +13,8 @@ commands:
     export CVS_RSH="ssh"
     cvs checkout -P -d vgrind src/usr.bin/vgrind
 	
-No effort is currently being make to track the original, which is decades-old.
+No effort is currently being make to track the original, which is
+decades-old.
 
 ### Notes
 
