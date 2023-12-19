@@ -41,6 +41,7 @@
 .Op Fl d Ar file
 .Op Fl h Ar header
 .Op Fl l Ar language
+.Op Fl o\fIpages\fP
 .Op Fl s Ns Ar n
 .Op Fl
 .Ar
@@ -144,6 +145,10 @@ and
 .Pq Fl l Ns Ar I .
 .It Fl n
 forces no keyword bolding
+.It Fl o\fIpages\fP
+print only the pages specified by the
+.Xr troff 1
+pages specification.
 .It Fl s Ns Ar n
 specifies a point size
 .Ar n
@@ -172,17 +177,20 @@ as argument.
 .Bl -tag -width /usr/share/misc/vgrindefsxx -compact
 .It Pa index
 file where source for index is created
-.It Pa /usr/share/tmac/vgrind.tmac
+.It Pa $(PREFIX)/share/vgrind/vgrind.tmac
 macro package
-.It Pa /usr/libexec/vfontedpr
+.It Pa $(PREFIX)/libexec/vfontedpr
 preprocessor
-.It Pa /usr/share/misc/vgrindefs
+.It Pa $(PREFIX)/share/vgrind/vgrindefs
 language descriptions
+.It Pa $(PREFIX)/share/vgrind/vgrindefs.db
+language descriptions (either the text or db version of vgrindefs is present.)
 .El
 .Sh SEE ALSO
 .Xr lpr 1 ,
 .Xr groff 1 ,
 .Xr getcap 3 ,
+.Xr troff 1 ,
 .Xr vgrindefs 5
 .Sh HISTORY
 The
