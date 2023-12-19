@@ -44,7 +44,7 @@ set f=''
 set head=""
 set vf=@VF@
 set tm=@TMDIR@
-set vmacs=vgrind.tmac
+set vmacs=tmac.vgrind
 top:
 if ($#argv > 0) then
     switch ($1:q)
@@ -120,10 +120,10 @@ if (-r index) then
     else
 	if ("$head" != "") then
 	    $vf $options -h "$head" $files | \
-		sh -c "groff -Tps $lpoption -C -rx1 $voptions -i -mvgrind 2>> xindex"
+		sh -c "groff -Tps $lpoption -C -rx1 $voptions -i -M $tm -mvgrind 2>> xindex"
 	else
 	    $vf $options $files | \
-		sh -c "groff -Tps $lpoption -C -rx1 $voptions -i -mvgrind 2>> xindex"
+		sh -c "groff -Tps $lpoption -C -rx1 $voptions -i -M $tm -mvgrind 2>> xindex"
 	endif
     endif
     sort -df +0 -2 xindex >index
@@ -137,9 +137,9 @@ else
 	endif
     else
 	if ("$head" != "") then
-	    $vf $options -h "$head" $files | groff -Tps $lpoption -C -i $voptions -mvgrind
+	    $vf $options -h "$head" $files | groff -Tps $lpoption -C -i $voptions -M $tm -mvgrind
 	else
-	    $vf $options $files | groff -Tps $lpoption -C -i $voptions -mvgrind
+	    $vf $options $files | groff -Tps $lpoption -C -i $voptions -M $tm -mvgrind
 	endif
     endif
 endif
