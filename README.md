@@ -19,5 +19,5 @@ decades-old.
 ### Notes
 
 Makefile and vgrind.sh in the project rootdir are the BSD originals,
-kept for reference.  RETEST contains a test program for refexp.c.
+kept for reference.  RETEST contains a test program for regexp.c.
 
