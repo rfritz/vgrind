@@ -108,16 +108,16 @@ The options are:
 .It Fl
 forces input to be taken from standard input (default if
 .Fl f
-is specified )
+is specified)
 .It Fl d Ar file
 specifies an alternative language definitions
 file (default is
-.Pa /usr/share/misc/vgrindefs )
+.Pa $(PREFIX)/share/vgrind/vgrindefs )
 .It Fl f
 forces filter mode
 .It Fl h Ar header
-specifies a particular header to put on every output page (default is
-the file name)
+specifies a particular header to put at the top center of every output
+page
 .It Fl l
 specifies the language to use.
 Currently known are
@@ -148,7 +148,7 @@ forces no keyword bolding
 .It Fl o\fIpages\fP
 print only the pages specified by the
 .Xr troff 1
-pages specification.
+pages specification
 .It Fl s Ns Ar n
 specifies a point size
 .Ar n
