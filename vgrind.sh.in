@@ -44,7 +44,7 @@ set f=''
 set head=""
 set vf=@VF@
 set tm=@TMDIR@
-set vmacs=tmac.vgrind
+set vmacs=vgrind.tmac
 
 while ($#argv > 0)
     switch ($1:q)
