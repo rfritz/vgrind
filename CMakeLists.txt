@@ -44,5 +44,6 @@ else()
     DESTINATION ${APPSHAREPATH})
 endif()
 install(FILES vgrind.tmac DESTINATION ${APPSHAREPATH})
-install(FILES vgrind.1 DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1)
+install(FILES pprint.1 vgrind.1
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1)
 install(FILES vgrindefs.5 DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man5)
