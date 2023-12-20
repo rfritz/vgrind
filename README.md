@@ -1,8 +1,9 @@
-vgrind
-======
-
+vgrind and pprint
+=================
 The venerable BSD source code typesetter, which I am forking for my
-own use on macOS, and perhaps for use in other projects.
+own use on macOS, and perhaps for use in other projects.  The
+**vgrind** command sends its results to a printer using **lp**; I have
+added a **pprint** command which produces PDF files.
 
 Source
 ------
@@ -18,6 +19,6 @@ decades-old.
 
 ### Notes
 
-Makefile and vgrind.sh in the project rootdir are the BSD originals,
-kept for reference.  RETEST contains a test program for regexp.c.
+Makefile and vgrind.sh in the ATTIC are the BSD originals, kept for
+reference.  RETEST contains a test program for regexp.c.
 
