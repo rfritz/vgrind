@@ -45,64 +45,65 @@ set head=""
 set vf=@VF@
 set tm=@TMDIR@
 set vmacs=tmac.vgrind
-top:
-if ($#argv > 0) then
+
+while ($#argv > 0)
     switch ($1:q)
 
     case -f:
 	set f='filter'
 	set options = "$options $1:q"
 	shift
-	goto top
+	breaksw
 
     case -t:
 	set lpoption=
 	shift
-	goto top
+	breaksw
 
     case -o*:
 	set voptions="$voptions $1:q"
 	shift
-	goto top
+	breaksw
 
     case -W:
 	set voptions = "$voptions -W"
 	shift
-	goto top
+	breaksw
 
     case -d:
 	if ($#argv < 2) then
 	    echo "vgrind: $1:q option must have argument"
-	    goto done
+	    exit 1
 	else
 	    set options = ($options $1:q $2)
 	    shift
 	    shift
-	    goto top
+	    breaksw
 	endif
 			
     case -h:
 	if ($#argv < 2) then
 	    echo "vgrind: $1:q option must have argument"
-	    goto done
+	    exit 1
 	else
 	    set head="$2"
 	    shift
 	    shift
-	    goto top
+	    breaksw
 	endif
 			
     case -*:
 	set options = "$options $1:q"
 	shift
-	goto top
+	breaksw
 
     default:
 	set files = "$files $1:q"
 	shift
-	goto top
+	breaksw
     endsw
-endif
+end
+
 if (-r index) then
     echo > nindex
     foreach i ($files)
@@ -143,5 +144,3 @@ else
 	endif
     endif
 endif
-
-done:
