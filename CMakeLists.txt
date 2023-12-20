@@ -31,9 +31,11 @@ endif()
 set(VF ${CMAKE_INSTALL_PREFIX}/libexec/vfontedpr)
 set(TMDIR ${APPSHAREPATH})
 configure_file(vgrind.sh.in vgrind @ONLY)
+configure_file(pprint.sh.in pprint @ONLY)
 
 install(TARGETS vfontedpr DESTINATION libexec)
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/vgrind TYPE BIN)
+install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/pprint TYPE BIN)
 if(EXISTS ${CMAKE_CURRENT_BINARY_DIR}/vgrindefs.db)
   install(FILES ${CMAKE_CURRENT_BINARY_DIR}/vgrindefs.db
     DESTINATION ${APPSHAREPATH})
