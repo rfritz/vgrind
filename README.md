@@ -15,7 +15,7 @@ commands:
     cvs checkout -P -d vgrind src/usr.bin/vgrind
 	
 No effort is currently being make to track the original, which is
-decades-old.
+decades old.
 
 ### Notes
 
