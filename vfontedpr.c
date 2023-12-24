@@ -657,6 +657,9 @@ putcp(int c)
 		ps("\\fI\\h'\\w' 'u-\\w'/'u'/\\fP");
 		break;
 
+        case 015:      /* Ignore cr - most compilers don't care */
+                break;
+
 	default:
 		if (c < 040)
 			putchar('^'), c |= '@';
