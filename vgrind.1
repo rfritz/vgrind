@@ -92,6 +92,18 @@ There need be no particular ordering with
 .Xr eqn 1
 or
 .Xr tbl 1 .
+Function and procedure labels may be suppressed in filter mode by making the
+.Xr troff
+.Em y
+register nonzero; the lines
+.Bl -tag -width XXXXXXXXXX
+.It \&.vS
+starts processing
+.It \&.nr\ y\ 1
+suppress labeling
+.It \&.vE
+ends processing
+.El
 .Pp
 In regular mode
 .Nm
