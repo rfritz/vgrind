@@ -467,8 +467,10 @@ expmatch(
 			/* not optional and we still matched */
 			return NULL;
 		    }
-		    if (!isalnum((unsigned char)*s1) && *s1 != '_')
-			return NULL;
+                    if (!isalnum((unsigned char)*s1)){
+                        if (!(*s1 == '_' || (l_dotaln && *s1 == '.')))
+			    return NULL;
+                    }
 		    if (*s1 == '\\')
 			x_escaped = x_escaped ? false : true;
 		    else

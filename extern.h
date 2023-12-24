@@ -50,6 +50,7 @@ extern char    *l_prcbeg;              /* regular expr for procedure begin */
 extern char    *l_strbeg;              /* delimiter for string constant */
 extern char    *l_strend;              /* delimiter for string constant */
 extern bool     l_toplex;              /* procedures only defined at top lex level */
+extern bool     l_dotaln;              /* dot is alphanumeric in this lang */
 extern const char *language;           /* the language indicator */
 
 #include <sys/cdefs.h>

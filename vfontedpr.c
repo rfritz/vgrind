@@ -124,6 +124,7 @@ char	*l_prcbeg;		/* regular expr for procedure begin */
 char    *l_strbeg;		/* delimiter for string constant */
 char    *l_strend;		/* delimiter for string constant */
 bool	 l_toplex;		/* procedures only defined at top lex level */
+bool     l_dotaln;              /* dot is alphanumeric in this lang */
 const char *language = "c";	/* the language indicator */
 
 #define	ps(x)	printf("%s", x)
@@ -280,6 +281,7 @@ main(int argc, char *argv[])
 	l_escape = '\\';
 	l_onecase = (cgetcap(defs, "oc", ':') != NULL);
 	l_toplex = (cgetcap(defs, "tl", ':') != NULL);
+        l_dotaln = (cgetcap(defs, "da", ':') != NULL);
 
 	/* initialize the program */
 
@@ -347,7 +349,7 @@ main(int argc, char *argv[])
     exit(0);
 }
 
-#define isidchr(c) (isalnum((unsigned char)(c)) || (c) == '_')
+#define isidchr(c) (isalnum((unsigned char)(c)) || (c) == '_' || (l_dotaln && (c) == '.'))
 
 static void
 putScp(char *os)
