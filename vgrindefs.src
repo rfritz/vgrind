@@ -146,3 +146,19 @@ C++|c++:\
 	ifdef ifndef include undef defined\
 	class const delete friend inline new operator overload private\
 	protected public virtual:
+f77|F77:\
+	:pb=(program|subroutine|function)\d\p\d?\(\a?\):\
+	:bb=(program|subroutine|function)\d\p\d?\(\a?\):be=^\d?end:\
+	:cb=^c:ce=$:\
+	:ab=^*:ae=$:\
+	:sb=("|'):se=(\e"|\e'):oc:\
+	:kw=character complex double integer implicit logical real precision \
+        external common \
+        call cycle exit data do else elseif end endif format function goto if \
+	include parameter pause print read return save stop subroutine then \
+        write:
+R:\
+	:pb=\p\d<-\d(function):bb={:be=}:\
+	:cb=#:ce=$:ab=#:ae=$:da:\
+	:sb=("|'):se=(\e"|\e'):\
+	:kw=function for while repeat if else break next stop switch:
