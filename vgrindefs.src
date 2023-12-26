@@ -37,7 +37,7 @@
 C|c:\
 	:pb=^\d?*?\d?\p\d?\(\a?\)(\d|{):bb={:be=}:cb=/*:ce=*/:sb=":se=\e":lb=':\
 	:le=\e':tl:\
-	:kw=asm auto break case char continue default do double else enum\
+	:kw=asm auto break case char const continue default do double else enum\
 	extern float for fortran goto if int long register return short\
 	sizeof static struct switch typedef union unsigned void while #define\
 	#else #endif #if #ifdef #ifndef #include #undef # define else endif\
