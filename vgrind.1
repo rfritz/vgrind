@@ -92,6 +92,21 @@ There need be no particular ordering with
 .Xr eqn 1
 or
 .Xr tbl 1 .
+Function and procedure labels may be suppressed in filter mode by making the
+.Xr troff
+.Em y
+register nonzero; the lines
+.Bl -tag -width XXXXXXXXXX
+.It \&.vS
+starts processing
+.It \&.nr\ y\ 1
+suppress labeling
+.It ...
+program text
+.It \&.vE
+ends processing
+.El
+will achieve this.
 .Pp
 In regular mode
 .Nm
@@ -134,6 +149,10 @@ or the default),
 .Pq Fl l Ns Ar sh ,
 .Tn RATFOR
 .Pq Fl l Ns Ar r ,
+.Tn "Fortran 77"
+.Pq Fl l Ns Ar f77 ,
+.Tn R
+.Pq Fl l Ns Ar R ,
 .Tn MODULA2
 .Pq Fl l Ns Ar mod2 ,
 .Tn YACC
@@ -245,7 +264,9 @@ The mechanism of
 .Xr ctags 1
 in recognizing functions should be used here.
 .Pp
-Filter mode does not work in documents using the
+Filter mode must be the last option if used.
+.Pp
+Filter mode might interfere with formatting of documents using the
 .Fl me
 or
 .Fl ms
