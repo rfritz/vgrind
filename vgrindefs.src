@@ -152,12 +152,14 @@ f77|F77:\
 	:cb=^c:ce=$:\
 	:ab=^*:ae=$:\
 	:sb=("|'):se=(\e"|\e'):oc:\
-	:kw=character complex double integer implicit logical real precision \
-        external common \
-        call cycle exit data do else elseif end endif format function goto if \
-	include parameter pause print read return save stop subroutine then \
-        write:
-R:\
+	:kw=character complex double integer implicit logical real precision\
+	external common\
+	call cycle exit data do else elseif end endif format function goto if\
+	include parameter pause print read return save stop subroutine then\
+	write:
+# The alternate name is a workaround for a cap_mkdb bug; without it, the entry
+# for R is ignored
+R|Rproj:\
 	:pb=\p\d<-\d(function):bb={:be=}:\
 	:cb=#:ce=$:ab=#:ae=$:da:\
 	:sb=("|'):se=(\e"|\e'):\
