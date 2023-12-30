@@ -99,6 +99,7 @@ while ($#argv > 0)
     endsw
 end
 
+set rc=0
 if (-r index) then
     echo > nindex
     foreach i ($files)
@@ -110,16 +111,20 @@ if (-r index) then
     if ($f == 'filter') then
 	if ("$head" != "") then
 	    $vf $options -h "$head" $files | cat $tm/$vmacs -
+	    set rc=$status
 	else
 	    $vf $options $files | cat $tm/$vmacs -
+	    set rc=$status
 	endif
     else
 	if ("$head" != "") then
 	    $vf $options -h "$head" $files | \
 		sh -c "groff -Tps $lpoption -C -rx1 $voptions -i -M $tm -mvgrind 2>> xindex"
+	    set rc=$status
 	else
 	    $vf $options $files | \
 		sh -c "groff -Tps $lpoption -C -rx1 $voptions -i -M $tm -mvgrind 2>> xindex"
+	    set rc=$status
 	endif
     endif
     sort -df +0 -2 xindex >index
@@ -128,14 +133,20 @@ else
     if ($f == 'filter') then
 	if ("$head" != "") then
 	    $vf $options -h "$head" $files | cat $tm/$vmacs -
+	    set rc=$status
 	else
 	    $vf $options $files | cat $tm/$vmacs -
+	    set rc=$status
 	endif
     else
 	if ("$head" != "") then
 	    $vf $options -h "$head" $files | groff -Tps $lpoption -C -i $voptions -M $tm -mvgrind
+	    set rc=$status
 	else
 	    $vf $options $files | groff -Tps $lpoption -C -i $voptions -M $tm -mvgrind
+	    set rc=$status
 	endif
     endif
 endif
+
+exit $rc

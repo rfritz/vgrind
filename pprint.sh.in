@@ -75,7 +75,7 @@ while ($#argv > 0)
 	    echo "vgrind: $1:q option must have argument"
 	    exit 1
 	else
-	    set options=( $options:q -h $2:q )
+	    set options=($options:q -h $2:q)
 	    shift
 	    shift
 	    breaksw
@@ -95,7 +95,11 @@ end
 
 if ($f == 'filter') then
     $vf $options:q $files | cat $tm/$vmacs -
+    set rc=$status
 else
     $vf $options:q $files |\
 	groff -T pdf -C -i $voptions:q -M $tm -mvgrind
+    set rc=$status
 endif
+
+exit $rc

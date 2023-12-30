@@ -190,6 +190,9 @@ option and the file
 .Pa index
 as argument.
 .El
+.Sh EXIT STATUS
+0 on normal exit, >0 for some errors.  Errors are not always reflected
+in the exit status.
 .Sh FILES
 .Bl -tag -width /usr/share/misc/vgrindefsxx -compact
 .It Pa index
@@ -259,6 +262,9 @@ automatically sends its output to a printer.  Producing a PDF or
 HTML/CSS file by default (see the
 .Fl t 
 option) might be better for modern usage.
+.Pp
+Due to the limitations of csh, error detection and processing is
+unreliable; an error does not always result in a non-zero return code.
 .Pp
 The mechanism of
 .Xr ctags 1

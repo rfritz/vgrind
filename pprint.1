@@ -146,6 +146,9 @@ specifies a point size
 to use on output (exactly the same as the argument
 of a .ps)
 .El
+.Sh EXIT STATUS
+0 on normal exit, >0 for some errors.  Errors are not always reflected
+in the exit status.
 .Sh FILES
 .Bl -tag -width /usr/share/misc/vgrindefsxx -compact
 .It Pa index
@@ -163,7 +166,7 @@ language descriptions (either the text or db version of vgrindefs is present.)
 .Xr groff 1 ,
 .Xr getcap 3 ,
 .Xr troff 1 ,
-.Xr vgrind 1 ,
+.Xr vgrind 1
 .Sh HISTORY
 The
 .Nm
@@ -213,6 +216,8 @@ works best if it is run from the directory of the files being
 formatted or a directory immediately above.  Run from a remote
 directory, it produces long garbled headers. 
 .Pp
+Due to the limitations of csh, error detection and processing is
+unreliable; an error does not always result in a non-zero return code.
 .Pp
 The mechanism of
 .Xr ctags 1
